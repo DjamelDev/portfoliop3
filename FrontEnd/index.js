@@ -1,10 +1,10 @@
 // Variables travaux
-const galleryGrid = document.querySelector(".gallery-grid");
+const galleryGrid = document.querySelector(".gallery");
 
 
 //=======================================================================
 
-// Appel des travaux via l'API en GET
+// On appelle les travaux via l'API en GET
 const worksApi = "http://localhost:5678/api/works";
 
 async function getWorks() {
