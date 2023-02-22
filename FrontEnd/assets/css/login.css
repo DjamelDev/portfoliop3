@@ -108,6 +108,11 @@ input[type="submit"]{
     text-align: center;
 }
 
+footer li {
+	position: fixed;
+	bottom: 4%;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
