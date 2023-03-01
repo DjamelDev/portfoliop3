@@ -27,11 +27,12 @@ async function getWorks() {
 
       figure.append(img, figcaption);
       galleryGrid.append(figure);
-
-    }
-  } catch (error) {
+  }
+} catch (error) {
     console.error("Warning : " + error);
   }
 }
 
-getWorks();
+getWorks(); /* Appel de la fonction */
+
+console.log(localStorage.token);

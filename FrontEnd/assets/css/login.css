@@ -108,6 +108,15 @@ input[type="submit"]{
     text-align: center;
 }
 
+.test {
+	padding: 1rem 4rem;
+	background-color: cornflowerblue;
+	color: #FFFFFF;
+	border-radius: 15px;
+}
+
+/* FOOTER */
+
 footer li {
 	position: fixed;
 	bottom: 4%;
