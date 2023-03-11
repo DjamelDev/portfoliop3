@@ -26,11 +26,11 @@ formulaire.addEventListener("submit", async function(e) {
     //   Vérifier si les identifiants sont OK
 
     if (response.status === 200) {
-        localStorage.setItem("token", result.token); /* Permet de stocker le token */
+        sessionStorage.setItem("token", result.token); /* Permet de stocker le token */
         document.location.href="index.html";  /* Permet de faire une redirection */
     } else if (response.status === 401 || response.status === 404){
         formulaire.email.value = "";
         formulaire.password.value = "";
-        alert('Adresse mail ou identifiant incorrect !');
+        alert('Adresse mail ou mot de passe incorrect !');
     }
     });

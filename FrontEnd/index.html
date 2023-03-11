@@ -4,36 +4,45 @@
     <meta charset="UTF-8" />
     <title>Sophie Bluel - Architecte d'intérieur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/1dc4c37018.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
-      rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"rel="stylesheet"
     />
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    <nav id="nav-top">
+      <a href="#"><i class="fa-regular fa-pen-to-square"></i>Mode édition</a>
+      <button class="btn-save">Publier les changements</button>
+    </nav>
 	<!-- HEADER -->
     <header>
-      <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
         <ul>
           <li>projets</li>
           <li>contact</li>
-          <li><span class="login">login</span><span class="logout">logout</span></li>
+          <li>
+            <a id="login" href="login.html">login</a>
+            <span id="logout">logout</span>
+          </li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
     </header>
+    
 
 	<!-- MAIN INTRODUCTION -->
     <main>
       <section id="introduction">
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
+          <a href="#" id="modify-one" ><i class="fa-regular fa-pen-to-square"></i>Modifier</a>
         </figure>
         <article>
+          <a href="#" id="modify-two"><i class="fa-regular fa-pen-to-square"></i>Modifier</a>
           <h2>Designer d'espace</h2>
           <p>
             Je raconte votre histoire, je valorise vos idées. Je vous accompagne
@@ -55,7 +64,13 @@
 
 	  <!-- PORTFOLIO -->
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <div class="modify-flex"><h2>Mes Projets</h2><a href="#" id="modify-three"><i class="fa-regular fa-pen-to-square"></i>Modifier</a></div>
+        <div class="filter-list">
+          <div class="active" data-category-id="0" id="all">Tous</div>
+          <div data-category-id="1">Objets</div>
+          <div data-category-id="2">Appartements</div>
+          <div data-category-id="3">Hôtels et restaurants</div>
+        </div>
         <div class="gallery"></div>
       </section>
       <section id="contact">

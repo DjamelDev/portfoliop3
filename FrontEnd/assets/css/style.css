@@ -49,10 +49,45 @@ table {
 /** end reset css**/
 body {
 	max-width: 1140px;
-	margin:auto;
+	margin: auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#nav-top {
+	background: #000;
+	height: 59px;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+
+#nav-top .fa-pen-to-square {
+	margin-right: 9px;
+
+}
+
+#nav-top a {
+	margin-right: 20px;
+	font-size: 16px;
+}
+
+#nav-top .btn-save {
+	border-radius: 60px;
+	height: 38px;
+	width: 216px;
+	left: 688px;
+	top: 10px;
+	cursor: pointer;
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -97,9 +132,14 @@ nav li {
 
 li:hover {
 	color: #B1663C;
+	cursor: pointer;
 }
 
-.logout {
+li img {
+	cursor: default;
+}
+
+#logout {
 	display: none;
 }
 
@@ -107,20 +147,38 @@ li:hover {
 	display: flex;
 	align-items: center;
 }
-#introduction figure {
-	flex: 1
+
+/* MODIFIER SOUS IMAGE */
+
+.fa-pen-to-square {
+	margin-right: 8px;
 }
+
+#modify-one {
+	margin: auto;
+	width: 80%;	
+	display: block;	
+}
+
+/* FIN DU PREMIER MODIFY */
+
+#introduction figure {
+	flex: 1;
+}
+
 #introduction img {
 	display: block;
 	margin: auto;
 	width: 80%;
+	margin-bottom: 15px;
 }
 
 #introduction article {
-	flex: 1
+	flex: 1;
 }
 
 #introduction h2 {
+	margin-top: 19px;
 	margin-bottom: 1em;
 }
 
@@ -128,9 +186,57 @@ li:hover {
 	margin-bottom: 0.5em;
 }
 
+/* DERNIER MODIFY */
+
+#portfolio .modify-flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#portfolio #modify-three {
+	margin-bottom: 51px;
+}
+
+/* FIN DU 3EME MODIFY */
+
+#modify-one,
+#modify-two,
+#modify-three {
+	display: none;
+}
+
 #portfolio h2 {
+	margin-bottom: 51px;
+	margin-right: 31px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.filter-list {
+	display: flex;
+	margin-bottom: 50px;
+	justify-content: center;
+	margin-bottom: 51px;
+}
+
+.filter-list div {
+	margin: 0 10px;
+	box-sizing: border-box;
+	padding: 10px 20px;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	font-family: 'Syne', sans-serif;
 	text-align: center;
-	margin-bottom: 1em;
+	font-size: 16px;
+	color: #1D6154;
+	cursor: pointer;
+}
+
+.filter-list .active {
+	background-color: #1d6144;
+	color: white; 
 }
 	
 .gallery {
