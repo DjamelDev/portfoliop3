@@ -33,5 +33,4 @@ if (sessionStorage.token != undefined) {
     modifyThree.style.display = "none";
     filters.style.display = "flex";
   };
-}
-
+};
