@@ -79,12 +79,15 @@ a {
 }
 
 #nav-top .btn-save {
-	border-radius: 60px;
-	height: 38px;
-	width: 216px;
-	left: 688px;
-	top: 10px;
-	cursor: pointer;
+    background: #f1f1f1;
+    color: #000000;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin: 0 7px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s all;
 }
 
 header {
@@ -193,10 +196,6 @@ li img {
 	justify-content: center;
 }
 
-#portfolio #modify-three {
-	margin-bottom: 51px;
-}
-
 /* FIN DU 3EME MODIFY */
 
 #modify-one,
@@ -206,7 +205,6 @@ li img {
 }
 
 #portfolio h2 {
-	margin-bottom: 51px;
 	margin-right: 31px;
 	display: flex;
 	align-items: center;
@@ -215,7 +213,7 @@ li img {
 
 .filter-list {
 	display: flex;
-	margin-bottom: 50px;
+	margin-top: 50px;
 	justify-content: center;
 	margin-bottom: 51px;
 }
@@ -244,6 +242,7 @@ li img {
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
+	margin-top: 51px;
 }
 
 .gallery img {
@@ -301,4 +300,48 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
+}
+
+/* MODAL */
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
+}
+
+.modal h2 {
+	color: #000000;
+	text-align: center;
+	padding-top: 60px;
+	margin-bottom: 46px;
+	font-family: "Work Sans", sans-serif;
+	font-weight: 400;
+}
+
+.modal-wrapper {
+	width: 630px;
+	height: 670px;
+	background-color: #FFF;
+	position: relative;
+}
+
+.modify-button {
+	cursor: pointer;
+}
+
+.btn-close {
+	font-size: 22px;
+	position: absolute;
+	top: 32px;
+	right: 36px;
+	background-color: transparent;
+	border: none;
 }

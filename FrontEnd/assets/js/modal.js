@@ -1,36 +1,45 @@
-if (sessionStorage.token != undefined) {
-  let login = document.getElementById("login");
-  login.style.display = "none";
+// let modal = null;
 
-  let logout = document.getElementById("logout");
-  logout.style.display = "inline";
+// const openModal = function(e) {
+//     e.preventDefault();
+//     const target = document.querySelector(e.target.getAttribute('href'));
+//     target.style.display = null;
+//     target.removeAttribute('aria-hidden')
+//     modal = target
+//     modal.addEventListener('click', closeModal)
+//     modal.querySelector('.btn-close').addEventListener('click', closeModal)
+// }
 
-  let navBlack = document.getElementById("nav-top");
-  navBlack.style.display = "flex";
+// const closeModal = function (e) {
+//     if (modal === null) return 
+//     e.preventDefault();
+//     modal.style.display = 'none';
+//     modal.setAttribute('aria-hidden', 'true');
+//     modal = target
+//     modal.removeEventListener('click', closeModal)
+//     modal = null;
+// }
 
-  let modifyOne = document.getElementById("modify-one");
-  modifyOne.style.display = "flex";
+// document.querySelectorAll('.modal-js').forEach(a => {
+//     a.addEventListener('click', openModal);
+// })
 
-  let modifyTwo = document.getElementById("modify-two");
-  modifyTwo.style.display = "flex";
 
-  let modifyThree = document.getElementById("modify-three");
-  modifyThree.style.display = "flex";
+let buttonSpan = document.querySelector('span.modal-js');
+let modal = document.querySelector('.modal');
+let closeModal = document.querySelector('.btn-close');
 
-  let filters = document.querySelector(".filter-list");
-  filters.style.display = "none";
 
-  logout.onclick = function () {
-    // La méthode clear supprime tous les éléments de l'objet
-    sessionStorage.clear();
-    console.log(sessionStorage);
+buttonSpan.addEventListener("click", function(){
+  modal.style.display = "flex";
+  modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation);
+});
 
-    login.style.display = "inline";
-    logout.style.display = "none";
-    navBlack.style.display = "none";
-    modifyOne.style.display = "none";
-    modifyTwo.style.display = "none";
-    modifyThree.style.display = "none";
-    filters.style.display = "flex";
-  };
-};
+closeModal.addEventListener("click", function() {
+  if (modal === null ) return modal;
+  modal.style.display = "none";
+  modal.setAttribute("aria-hidden", "true");
+  modal.querySelector('.btn-close').removeEventListener('click', closeModal);
+  modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation);
+  modal = null;
+})

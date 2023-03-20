@@ -34,18 +34,20 @@
       </nav>
     </header>
 
-    
-    
 
 	<!-- MAIN INTRODUCTION -->
     <main>
       <section id="introduction">
         <figure>
-          <img src="./assets/images/sophie-bluel.png" alt="" />
-          <a href="#" id="modify-one" ><i class="fa-regular fa-pen-to-square"></i>Modifier</a>
+          <img src="./assets/images/sophie-bluel.png" alt="image Sophie Bluel" />
+          <span data-modal="edit-image" id="modify-one" class="modify-button">
+              <i class="fa-regular fa-pen-to-square"></i>Modifier
+          </span>
         </figure>
         <article>
-          <a href="#" id="modify-two"><i class="fa-regular fa-pen-to-square"></i>Modifier</a>
+          <span data-modal="edit-presentation" id="modify-two" class="modify-button">
+              <i class="fa-regular fa-pen-to-square"></i>Modifier
+          </span>
           <h2>Designer d'espace</h2>
           <p>
             Je raconte votre histoire, je valorise vos idées. Je vous accompagne
@@ -67,7 +69,12 @@
 
 	  <!-- PORTFOLIO -->
       <section id="portfolio">
-        <div class="modify-flex"><h2>Mes Projets</h2><a href="#" id="modify-three"><i class="fa-regular fa-pen-to-square"></i>Modifier</a></div>
+        <div class="modify-flex">
+          <h2>Mes Projets</h2>
+          <span class="modal-js modify-button" data-modal="edit-works" id="modify-three">
+              <i class="fa-regular fa-pen-to-square"></i>Modifier
+          </span>
+        </div>
         <div class="filter-list">
           <div class="active" data-category-id="0" id="all">Tous</div>
           <div data-category-id="1">Objets</div>
@@ -89,7 +96,16 @@
           <input type="submit" value="Envoyer" />
         </form>
       </section>
-    </main>
+
+
+      <aside class="modal modal-js" aria-hidden="true" role="dialog" data-modal="primary-modal">
+          <div class="modal-wrapper">
+            <button class="btn-close"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+            <h2>Galerie photo</h2>
+          </div>
+        </div>
+      </aside>
+      
 
 	<!-- FOOTER -->
     <footer>
@@ -100,6 +116,7 @@
       </nav>
     </footer>
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/main.js"></script>
     <script src="./assets/js/modal.js"></script>
   </body>
 </html>
