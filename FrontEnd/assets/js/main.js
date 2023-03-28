@@ -23,9 +23,6 @@ if (sessionStorage.token != undefined) {
 
 // MODAL
 
-
-// 
-
   logout.onclick = function () {
     // La méthode clear supprime tous les éléments de l'objet
     sessionStorage.clear();

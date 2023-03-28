@@ -7,8 +7,8 @@
     <script src="https://kit.fontawesome.com/1dc4c37018.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
@@ -72,17 +72,19 @@
         <div class="modify-flex">
           <h2>Mes Projets</h2>
             <div id="app-modal">
-            <span class="modal-js modify-button" data-modal="edit-works" id="modify-three">
+            <span class="modal-js modify-button" id="modify-three">
                 <i class="fa-regular fa-pen-to-square"></i>Modifier
             </span>
           </div>
         </div>
+
         <div class="filter-list">
           <div class="active" data-category-id="0" id="all">Tous</div>
           <div data-category-id="1">Objets</div>
           <div data-category-id="2">Appartements</div>
           <div data-category-id="3">Hôtels et restaurants</div>
         </div>
+        
         <div class="gallery"></div>
       </section>
       <section id="contact">
@@ -100,12 +102,47 @@
       </section>
 
 
-      <aside class="modal modal-js" id="modal" aria-hidden="true" role="dialog" data-modal="primary-modal">
-          <div class="modal-wrapper">
-            <button id="js-modal-close"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+      <aside class="modal modal-js" id="modal" aria-hidden="true" role="dialog">
+          <div class="modal-wrapper modal-wrapper-delete js-modal-stop">
+            <button class="js-modal-close" title="Fermer"><i class="fa-sharp fa-solid fa-xmark"></i></button>
             <h2>Galerie photo</h2>
+              <div class="container">
+                <div class="modal-flex" id="works">
+                  <!-- projets api -->
+                </div>
+              </div>
+            <hr class="line"></hr>
+            <button class="btn-add-photo">Ajouter une photo</button>
+            <button class="btn-delete-galerie">Supprimer la galerie</button>
           </div>
-        </div>
+          <div class="modal-wrapper modal-wrapper-add js-modal-stop">
+            <button class="btn-back"><i class="fa-solid fa-left-long"></i></button>
+            <button class="js-modal-close" id="close-two" title="Fermer"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+            <h2>Ajout photo</h2>
+            <div class="container">
+              <div class="bloc-add-picture"></div>
+              <section class="container-describe">
+                <form method="POST" href="#">
+                  <label for="titre">Titre</label>
+                  <input type="text" name="titre" id="titre" />
+                  <label for="category">Catégorie</label>
+                  <!-- <select name="category" id="category">
+                    <option value=""></option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="parrot">Parrot</option>
+                    <option value="spider">Spider</option>
+                    <option value="goldfish">Goldfish</option>
+                  </select> -->
+               <hr class="line"></hr>
+               <button class="btn-validation">Valider</button>
+                </form>
+              </section>
+                
+             
+            </div>
+          </div>
       </aside>
       
 

@@ -1,22 +1,113 @@
 let openModal = document.getElementById('modify-three');
-let closeModal = document.getElementById('js-modal-close');
+let closeModal = document.querySelector('.js-modal-close');
+let modal = document.querySelector('.modal');
 
 openModal.addEventListener('click', fncOpenModal);
 closeModal.addEventListener('click', fncCloseModal);
 
-// Ouvre la fenêtre
-function fncCloseModal() {
-  document.getElementById('app-modal');
-  document.getElementById('modal').classList.remove('open');
-}
 
-// Ferme la fenêtre
+// Ouvre la fenêtre
 function fncOpenModal() {
   document.getElementById('app-modal');
 	document.getElementById('modal').classList.add('open');
+  modal.addEventListener('click', fncCloseModal);
+  modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation);
 }
 
-const galleryGrid = document.querySelector(".gallery");
-const worksApi = "http://localhost:5678/api/works";
+// Ferme la fenêtre
+function fncCloseModal() {
+  if (modal === null) return;
+  document.getElementById('app-modal');
+  document.getElementById('modal').classList.remove('open');
+  modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation);
+}
 
-//=======================================================================
+
+const stopPropagation = function (e) {
+  e.stopPropagation();
+}
+
+window.addEventListener('keydown', function (e) {
+  if (e.key === "Escape" || e.key === "Esc") {
+    fncCloseModal(e);
+  }
+})
+
+// ----------------------------------------------------------------------
+
+const modalFlex = document.querySelector(".modal-flex");
+const connectApi = "http://localhost:5678/api/works";
+
+  async function getWorks() {
+    try {
+      const response = await fetch(connectApi);
+      const data = await response.json();
+      
+  
+      for (let i in data) {
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        const figcaption = document.createElement("figcaption");
+        const poubelle = document.createElement("i");
+        poubelle.classList.add('fa-solid', 'fa-trash-can');
+        poubelle.setAttribute("data-id", data[i].id);
+
+        figure.setAttribute("data-id", data[i].id);
+        img.setAttribute("crossorigin", "anonymous");
+        img.setAttribute("src", data[i].imageUrl);
+        figcaption.innerHTML = "éditer";
+        
+  
+        figure.append(poubelle);
+        figure.append(img, figcaption);
+        modalFlex.append(figure);
+
+        poubelle.addEventListener("click", function() {
+          const id = poubelle.getAttribute("data-id");
+          console.log(id);
+          deleteWorks(id);
+          console.log("click");
+        })
+      
+        
+        function deleteWorks(id) {
+          fetch(`http://localhost:5678/api/works/${id}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+              'authorization': "Bearer " + sessionStorage.getItem("token"),
+            },
+          })
+          .then(response => {
+            if (response.status === 200) {
+              console.log("Projet supprime avec succès");
+            };
+          });
+        };
+      }
+    } catch (error) {
+      console.error("Warning : " + error);
+    }
+  }
+
+  
+  getWorks(); /* Appel de la fonction */
+  
+  // DELETE PROJET
+  
+  
+  // document.addEventListener('click', function (event) {
+  //   if (event.target.matches('.fa-trash-can')) {
+  //     deleteWorks(event.target.id);
+  //     console.log("ok");
+  //   }
+  //   })
+
+
+// DEUXIEME MODAL
+
+
+document.querySelector('.btn-add-photo').addEventListener('click', function() {
+  document.querySelector('.modal-wrapper-delete').classList.add('none');
+  document.querySelector('.modal-wrapper-add').classList.add('active');
+});

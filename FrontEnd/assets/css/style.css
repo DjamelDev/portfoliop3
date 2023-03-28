@@ -225,6 +225,7 @@ li img {
 	border: 1px solid #1D6154;
 	border-radius: 60px;
 	font-family: 'Syne', sans-serif;
+	font-weight: 700;
 	text-align: center;
 	font-size: 16px;
 	color: #1D6154;
@@ -321,7 +322,7 @@ footer nav ul {
 	display: flex;
 }
 
-.modal h2 {
+.modal-wrapper h2 {
 	color: #000000;
 	text-align: center;
 	padding-top: 60px;
@@ -332,16 +333,16 @@ footer nav ul {
 
 .modal-wrapper {
 	width: 630px;
-	height: 670px;
+	height: 731px;
 	background-color: #FFF;
-	position: relative;
+	position: absolute;
 }
 
 .modify-button {
 	cursor: pointer;
 }
 
-#js-modal-close {
+.js-modal-close {
 	font-size: 22px;
 	position: absolute;
 	top: 32px;
@@ -349,3 +350,176 @@ footer nav ul {
 	background-color: transparent;
 	border: none;
 }
+
+/* FIRST MODAL */
+
+.container {
+	display: flex;
+	position: relative;
+	justify-content: center;
+}
+
+.modal-flex {
+	/* border: 3px solid slateblue; */
+	display: flex;
+	gap: 7px;
+	position: relative;
+	flex-wrap: wrap;
+	width: 420px;
+	padding-bottom: 40px;
+}
+
+.modal-flex figure {
+	position: relative;
+}
+
+.modal-flex figcaption {
+	margin-top: 2px;
+	margin-bottom: 6px;
+	font-size: 12px;
+	font-family: "Work Sans", sans-serif;
+}
+
+.modal-flex img {
+	width: 78px;
+	height: 104px;
+}
+
+.line {
+	width: 420px;
+	margin-bottom: 35px;
+}
+
+.modal-wrapper button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	border: none;
+	margin-bottom: 23px;
+	cursor: pointer;
+}
+
+.btn-add-photo {
+	width: 237px;
+	height: 36px;
+	border-radius: 60px;
+	background: #1D6154;
+	color: #FFF;
+	font-weight: 700;
+	font-family: "Syne", sans-serif;
+	font-size: 14px;
+}
+
+.btn-delete-galerie {
+	background-color: transparent;
+	color: #D65353;
+	font-family: "Syne", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.fa-trash-can {
+	position: absolute;
+	color: #FFF;
+	background-color: #000;
+	padding: 4px;
+	font-size: 9px;
+	top: 6px;
+	right: 8px;
+	cursor: pointer;
+}
+
+/* DEUXIEME MODAL */
+
+.modal-wrapper-delete.none {
+	display: none;
+}
+
+.modal-wrapper-add {
+	display: none;
+}
+
+.modal-wrapper-add.active {
+	display: flex;
+	flex-direction: column;
+}
+
+.btn-back {
+	position: absolute;
+	top: 32px;
+	left: 30px;
+	font-size: 22px;
+	background-color: transparent;
+}
+
+.modal-wrapper-add.active .container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 36px;
+}
+
+.modal-wrapper-add h2 {
+	margin: 10px auto 0 auto;
+	display: flex;
+} 
+
+.bloc-add-picture {
+	margin: 0 auto;
+	display: flex;
+	width: 420px;
+	height: 169px;
+	background-color: #E8F1F6;
+}
+
+.container-describe {
+    margin: auto;
+}
+
+.container-describe form {
+	text-align: left;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.container-describe input {
+		height: 50px;
+		font-size: 1.2em;
+		border: none;
+		box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+		padding: 0 20px;	
+}
+
+.container-describe label {
+		margin: 2em 0 1em 0;
+}
+
+.container-describe select {
+	margin-bottom: 45px;
+}
+
+.container-describe hr {
+	margin-bottom: 50px;
+}
+
+.container-describe .btn-validation {
+	font-family: "Syne", sans-serif;
+	font-weight: 700;
+	font-size: 14px;
+	width: 237px;
+	height: 36px;
+	color: #fff;
+	background: #A7A7A7;
+	border-radius: 60px;
+}
+
+/* figure.modal-figure-works {
+	position: relative;
+} */
+
+/* .move-button {
+	position: absolute;
+} */
+
+
