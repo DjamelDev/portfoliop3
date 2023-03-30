@@ -101,7 +101,7 @@
         </form>
       </section>
 
-
+      <!-- PREMIERE MODALE -->
       <aside class="modal modal-js" id="modal" aria-hidden="true" role="dialog">
           <div class="modal-wrapper modal-wrapper-delete js-modal-stop">
             <button class="js-modal-close" title="Fermer"><i class="fa-sharp fa-solid fa-xmark"></i></button>
@@ -115,33 +115,34 @@
             <button class="btn-add-photo">Ajouter une photo</button>
             <button class="btn-delete-galerie">Supprimer la galerie</button>
           </div>
+
+          <!-- SECONDE MODALE -->
           <div class="modal-wrapper modal-wrapper-add js-modal-stop">
-            <button class="btn-back"><i class="fa-solid fa-left-long"></i></button>
-            <button class="js-modal-close" id="close-two" title="Fermer"><i class="fa-sharp fa-solid fa-xmark"></i></button>
-            <h2>Ajout photo</h2>
-            <div class="container">
-              <div class="bloc-add-picture"></div>
-              <section class="container-describe">
-                <form method="POST" href="#">
-                  <label for="titre">Titre</label>
-                  <input type="text" name="titre" id="titre" />
-                  <label for="category">Catégorie</label>
-                  <!-- <select name="category" id="category">
-                    <option value=""></option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="hamster">Hamster</option>
-                    <option value="parrot">Parrot</option>
-                    <option value="spider">Spider</option>
-                    <option value="goldfish">Goldfish</option>
-                  </select> -->
-               <hr class="line"></hr>
-               <button class="btn-validation">Valider</button>
-                </form>
-              </section>
-                
-             
-            </div>
+            <form method="POST" class="upload-edit-gallery">
+              <div class="leave-topbar-modal">
+                <button class="btn-back" id="btn-back"><i class="fa-solid fa-left-long"></i></button>
+                <button class="js-modal-close" title="Fermer"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+              </div>
+              <h2>Ajout photo</h2>
+              <div class="container-photo">
+                <i class="fa-sharp fa-regular fa-image"></i>
+                <label title="Ajouter une photo" class="hidden-to-preview special" for="file-input">+ Ajouter photo</label>
+                <input type="file" id="file-input" class="image-input" name="fileInput" style="visibility: hidden;">
+                <p class="hidden-to-preview">jpg, png : 4mo max</p>
+              </div>
+              <div class="titre_and_category">
+                <label for="title-input" class="label-title">Titre</label>
+                  <input type="text" name="title" id="title-input">
+
+                  <label for="categories" class="label-category">Catégorie</label>
+                  <select name="categories" id="categories">
+                      <option value="no-value" disabled selected>Sélectionner une catégorie</option>
+                      <!-- Via API -->
+                  </select>
+              </div>
+            <hr>
+            <button class="btn-confirmation">Valider</button>
+            </form>
           </div>
       </aside>
       

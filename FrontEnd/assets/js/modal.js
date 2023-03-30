@@ -1,13 +1,18 @@
 let openModal = document.getElementById('modify-three');
 let closeModal = document.querySelector('.js-modal-close');
-let modal = document.querySelector('.modal');
+let modal = document.getElementById('modal');
+let content = [];
+
 
 openModal.addEventListener('click', fncOpenModal);
 closeModal.addEventListener('click', fncCloseModal);
 
 
+// appendChild(content);
+
+
 // Ouvre la fenêtre
-function fncOpenModal() {
+function fncOpenModal(className) {
   document.getElementById('app-modal');
 	document.getElementById('modal').classList.add('open');
   modal.addEventListener('click', fncCloseModal);
@@ -20,7 +25,7 @@ function fncCloseModal() {
   document.getElementById('app-modal');
   document.getElementById('modal').classList.remove('open');
   modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation);
-}
+ }
 
 
 const stopPropagation = function (e) {
@@ -62,11 +67,14 @@ const connectApi = "http://localhost:5678/api/works";
         figure.append(img, figcaption);
         modalFlex.append(figure);
 
+        // METHODE DELETE
+
         poubelle.addEventListener("click", function() {
           const id = poubelle.getAttribute("data-id");
-          console.log(id);
+          console.log(figure);
+          figure.remove(id);
           deleteWorks(id);
-          console.log("click");
+          alert(`Figure supprimée avec succès !`);
         })
       
         
@@ -92,22 +100,15 @@ const connectApi = "http://localhost:5678/api/works";
 
   
   getWorks(); /* Appel de la fonction */
-  
-  // DELETE PROJET
-  
-  
-  // document.addEventListener('click', function (event) {
-  //   if (event.target.matches('.fa-trash-can')) {
-  //     deleteWorks(event.target.id);
-  //     console.log("ok");
-  //   }
-  //   })
 
 
 // DEUXIEME MODAL
 
+const formAddWorks = document.querySelector(".upload-edit-gallery");
+const inputImages = document.querySelectorAll(".image-input");
+const imgInput = document.getElementById("file-input");
+const btnBack = document.getElementById("btn-back");
 
-document.querySelector('.btn-add-photo').addEventListener('click', function() {
-  document.querySelector('.modal-wrapper-delete').classList.add('none');
+document.querySelector('.btn-add-photo').addEventListener("click", () => {
   document.querySelector('.modal-wrapper-add').classList.add('active');
-});
+})
