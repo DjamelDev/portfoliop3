@@ -12,7 +12,7 @@ closeModal.addEventListener('click', fncCloseModal);
 
 
 // Ouvre la fenêtre
-function fncOpenModal(className) {
+function fncOpenModal() {
   document.getElementById('app-modal');
 	document.getElementById('modal').classList.add('open');
   modal.addEventListener('click', fncCloseModal);
@@ -28,7 +28,7 @@ function fncCloseModal() {
  }
 
 
-const stopPropagation = function (e) {
+let stopPropagation = function (e) {
   e.stopPropagation();
 }
 
@@ -103,6 +103,32 @@ const connectApi = "http://localhost:5678/api/works";
 
 
 // DEUXIEME MODAL
+
+let openMod2 = document.getElementById('app-mod2');
+let closeMod2 = document.querySelector('.js-modal-close');
+
+openMod2.addEventListener('click', fncOpenModal2);
+closeMod2.addEventListener('click', fncCloseModal2);
+
+// Ouvre la seconde modale
+function fncOpenModal2() {
+  document.getElementById('app-mod2');
+	document.querySelector('.modal-wrapper-add').classList.add('active');
+  modal.addEventListener('click', fncCloseModal2);
+  modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation);
+}
+
+// Ferme la fenêtre
+function fncCloseModal2() {
+  if (modal === null) return;
+  document.getElementById('app-mod2');
+  document.querySelector('.modal-wrapper-add').classList.remove('active');
+  modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation);
+ }
+
+ stopPropagation = function (a) {
+  a.stopPropagation();
+}
 
 const formAddWorks = document.querySelector(".upload-edit-gallery");
 const inputImages = document.querySelectorAll(".image-input");
