@@ -1,47 +1,8 @@
-let openModal = document.getElementById('modify-three');
-let closeModal = document.querySelector('.js-modal-close');
-let modal = document.getElementById('modal');
-let content = [];
-
-
-openModal.addEventListener('click', fncOpenModal);
-closeModal.addEventListener('click', fncCloseModal);
-
-
-// appendChild(content);
-
-
-// Ouvre la fenêtre
-function fncOpenModal() {
-  document.getElementById('app-modal');
-	document.getElementById('modal').classList.add('open');
-  modal.addEventListener('click', fncCloseModal);
-  modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation);
-}
-
-// Ferme la fenêtre
-function fncCloseModal() {
-  if (modal === null) return;
-  document.getElementById('app-modal');
-  document.getElementById('modal').classList.remove('open');
-  modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation);
- }
-
-
-let stopPropagation = function (e) {
-  e.stopPropagation();
-}
-
-window.addEventListener('keydown', function (e) {
-  if (e.key === "Escape" || e.key === "Esc") {
-    fncCloseModal(e);
-  }
-})
-
-// ----------------------------------------------------------------------
-
 const modalFlex = document.querySelector(".modal-flex");
 const connectApi = "http://localhost:5678/api/works";
+const form = modal.querySelector("form");
+
+// Call avec l'API pour récupérer les projets
 
   async function getWorks() {
     try {
@@ -62,10 +23,9 @@ const connectApi = "http://localhost:5678/api/works";
         img.setAttribute("src", data[i].imageUrl);
         figcaption.innerHTML = "éditer";
         
-  
         figure.append(poubelle);
         figure.append(img, figcaption);
-        modalFlex.append(figure);
+        modalFlex.append(figure);        
 
         // METHODE DELETE
 
@@ -74,9 +34,9 @@ const connectApi = "http://localhost:5678/api/works";
           console.log(figure);
           figure.remove(id);
           deleteWorks(id);
-          alert(`Figure supprimée avec succès !`);
         })
-      
+
+        // METHODE DELETE
         
         function deleteWorks(id) {
           fetch(`http://localhost:5678/api/works/${id}`, {
@@ -97,44 +57,102 @@ const connectApi = "http://localhost:5678/api/works";
       console.error("Warning : " + error);
     }
   }
-
-  
   getWorks(); /* Appel de la fonction */
 
+  // ---------------------------------------------------- Gestion de la PREVIEW --------------------------------------------------------
 
-// DEUXIEME MODAL
+const containerHidden = document.querySelector(".hidden-to-preview");
+const btnHidden = document.getElementById("btn-none");
 
-let openMod2 = document.getElementById('app-mod2');
-let closeMod2 = document.querySelector('.js-modal-close');
+  function previewImage(event) {
+    const input = event.target;
+    const preview = document.querySelector('.preview');
+    const container = document.querySelector('.container-photo');
+  
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        preview.src = reader.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+  
+      container.classList.add('active');
+      containerHidden.classList.add('none')
+      btnHidden.classList.add('none');
+    } else {
+      preview.src = '';
+      container.classList.remove('active');
+    }
+  }
+  
 
-openMod2.addEventListener('click', fncOpenModal2);
-closeMod2.addEventListener('click', fncCloseModal2);
+// ------------------------------- Gestion des modales ----------------------------------------------------------------
 
-// Ouvre la seconde modale
-function fncOpenModal2() {
-  document.getElementById('app-mod2');
+// OPEN MODAL
+function openModal() {
+	document.getElementById('modal').classList.add('open');
+}
+
+// CLOSE MODAL
+function closeModal() {
+  console.log('CLOSE 1');
+  document.getElementById('modal').classList.remove('open');
+}
+
+// OPEN MODAL2
+function openModal2() {
 	document.querySelector('.modal-wrapper-add').classList.add('active');
-  modal.addEventListener('click', fncCloseModal2);
-  modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation);
 }
 
-// Ferme la fenêtre
-function fncCloseModal2() {
-  if (modal === null) return;
-  document.getElementById('app-mod2');
+// CLOSE MODAL2
+function closeModal2(returnToFirstModal=false) {
+  console.log('CLOSE 2 : ',returnToFirstModal)
   document.querySelector('.modal-wrapper-add').classList.remove('active');
-  modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation);
- }
-
- stopPropagation = function (a) {
-  a.stopPropagation();
+  form.reset();
+  if(!returnToFirstModal) {
+    document.getElementById('modal').classList.remove('open');
+  }
 }
 
-const formAddWorks = document.querySelector(".upload-edit-gallery");
-const inputImages = document.querySelectorAll(".image-input");
-const imgInput = document.getElementById("file-input");
-const btnBack = document.getElementById("btn-back");
+const aside = document.querySelector('#modal');
+const modal1 = document.getElementsByClassName('modal-wrapper')[0];
+const modal2 = document.getElementsByClassName('modal-wrapper')[1];
 
-document.querySelector('.btn-add-photo').addEventListener("click", () => {
-  document.querySelector('.modal-wrapper-add').classList.add('active');
+aside.addEventListener('click', function(e) {
+// Vérifier si le modal est ouvert et que le click a été déclenché en dehors de l'aside
+if (aside.classList.contains('open') && !modal1.contains(e.target) && !modal2.contains(e.target)) {
+// Si c'est le cas, fermer la modal
+closeModal2();
+}
+
+});
+
+// Récupérer les catégories dans l'API et les afficher dans mon SELECT
+
+fetch('http://localhost:5678/api/categories')
+  .then(response => response.json())
+  .then(data => {
+    // Récupération du SELECT dans le DOM
+    const select = document.getElementById('select-categories');
+
+    // Parcours des catégories et création des options
+    data.forEach(category => {
+      const option = document.createElement('option');
+      option.value = category.id;
+      option.text = category.name;
+      select.appendChild(option);
+    });
+  })
+  .catch(error => console.error(error));
+
+
+
+// Fermer la modale dès qu'on appuie sur la touche "Échap"
+window.addEventListener('keydown', function (e) {
+  if (e.key === "Escape" || e.key === "Esc") {
+    closeModal();
+    closeModal2();
+  }
 })
+
+

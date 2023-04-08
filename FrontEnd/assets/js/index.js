@@ -61,4 +61,5 @@ for (let filter of filtersShow) {
 
 
 
+
 console.log(sessionStorage);

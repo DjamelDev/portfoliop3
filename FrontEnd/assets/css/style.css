@@ -348,7 +348,7 @@ footer nav ul {
 	top: 32px;
 	right: 36px;
 	background-color: transparent;
-	border: none;
+	border: 5px solid red;
 }
 
 /* FIRST MODAL */
@@ -364,7 +364,6 @@ footer nav ul {
 }
 
 .modal-flex {
-	/* border: 3px solid slateblue; */
 	display: flex;
 	gap: 7px;
 	position: relative;
@@ -461,6 +460,8 @@ footer nav ul {
 	flex-direction: column;
 	align-items: center;
 	margin: 0 105px 30px 105px;
+	position: relative;
+	overflow: hidden;
 }
 
 .container-photo .fa-regular {
@@ -495,6 +496,25 @@ footer nav ul {
 	font-size: 10px;
 	font-family: "Work Sans", sans-serif;
 	color:#444444;
+}
+
+/* Gestion de la preview */
+
+.preview {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  }
+
+.container-photo-active {
+	display: none;
+}
+
+.none {
+	visibility: hidden;
 }
 
 .titre_and_category {
