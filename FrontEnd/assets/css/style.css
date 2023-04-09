@@ -248,6 +248,7 @@ li img {
 
 .gallery img {
 	width: 100%;
+	aspect-ratio: 4/4;
 }
 
 #contact {
@@ -336,6 +337,8 @@ footer nav ul {
 	height: 731px;
 	background-color: #FFF;
 	position: absolute;
+	overflow: hidden;
+	overflow-y: auto;
 }
 
 .modify-button {
@@ -464,6 +467,13 @@ footer nav ul {
 	overflow: hidden;
 }
 
+.container-photo .fa-trash {
+	position: absolute;
+	right: 15px;
+	top: 10px;
+}
+
+
 .container-photo .fa-regular {
 	position: relative;
 	margin-top: 20px;
@@ -573,4 +583,8 @@ footer nav ul {
 	font-weight: 700;
 	font-size: 14px;
 	font-family: "Syne", sans-serif;
+}
+
+img[src=""] {
+	display: none;
 }

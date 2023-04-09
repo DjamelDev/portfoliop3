@@ -85,7 +85,7 @@
           <div data-category-id="3">Hôtels et restaurants</div>
         </div>
         
-        <div class="gallery"></div>
+        <div class="gallery" id="workers-gallery"></div>
       </section>
       <section id="contact">
         <h2>Contact</h2>
@@ -124,23 +124,23 @@
                 <button class="js-modal-close" title="Fermer" onclick="closeModal2()"><i class="fa-sharp fa-solid fa-xmark"></i></button>
               </div>
               <h2>Ajout photo</h2>
-              <form method="POST">
+              <form method="POST" id="mon-formulaire">
                 <div class="container-photo">
                   <img class="preview">
+                    <i class="fa-solid fa-trash" id="fa-trash"></i>
                     <i class="fa-sharp fa-regular fa-image hidden-to-preview special"></i>
                     <label title="Ajouter une photo" class="hidden-to-preview special" for="file-input" id="btn-none">+ Ajouter photo</label>
-                  <input type="file" id="file-input" class="image-input" name="fileInput" accept="image/png, image/jpeg" maxlength="4194304" onchange="previewImage(event)" style="display: none;">
+                  <input type="file" id="file-input" class="image-input" name="image" accept="image/png, image/jpeg" maxlength="4194304" onchange="previewImage(event)" required style="display: none;">
                   <p>jpg, png : 4mo max</p>
                 </div>
                 <div class="titre_and_category">
                   <label for="title-input" class="label-title">Titre</label>
-                    <input type="text" name="title" id="title-input" minlength="4" required>
-
-                    <label for="categories" class="label-category">Catégorie</label>
-                    <select name="categories" id="select-categories" required>
-                        <option value="" disabled selected>Sélectionner une catégorie</option>
-                        <!-- Via API -->
-                    </select>
+                  <input type="text" name="title" id="title-input" minlength="4" required>
+                  <label for="category" class="label-category">Catégorie</label>
+                  <select name="category" id="select-categories" required>
+                    <option value="" disabled selected>Sélectionner une catégorie</option>
+                      <!-- Via API -->
+                  </select>
                 </div>
                 <hr>
                 <button type="submit" class="btn-confirmation">Valider</button>
