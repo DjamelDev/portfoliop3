@@ -8,7 +8,7 @@ const form = modal.querySelector("form");
     try {
       const response = await fetch(connectApi);
       const data = await response.json();
-      modalFlex.innerHTML = "";
+      modalFlex.innerHTML = ""; // On supprime les projets avant de recevoir la liste complète
   
       for (let i in data) {
         const figure = document.createElement("figure");

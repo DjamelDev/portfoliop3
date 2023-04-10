@@ -249,6 +249,7 @@ li img {
 .gallery img {
 	width: 100%;
 	aspect-ratio: 4/4;
+	object-fit: cover;
 }
 
 #contact {
@@ -351,7 +352,6 @@ footer nav ul {
 	top: 32px;
 	right: 36px;
 	background-color: transparent;
-	border: 5px solid red;
 }
 
 /* FIRST MODAL */
